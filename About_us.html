@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>	
+
+<head>
+<meta name="viewport" content ="width=device-width,initial-scale=1,user-scalable=yes" />
+<style>
+#header {
+    background-color: black;
+    color: #C0E2B5;
+    text-align: center;
+    font-family: "Courier New", Courier, monospace;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    bottom: auto;
+}
+
+#nav {
+	line-height: 30px;
+	background-color: black;
+	color: #C0E2B5;
+	text-align: center;
+        font-family: "Courier New", Courier, monospace;
+        width: 12%;
+	top: 79.5px;
+	bottom: 0px;
+	position: fixed;
+}
+
+a:link    {color:#C0E2B5; background-color:transparent; text-decoration:none}
+a:visited {color:#C0E2B5; background-color:transparent; text-decoration:none} 
+a:hover   {color:#40e0d0; background-color:transparent; text-decoration:underline}
+a:active  {color:#C0E2B5; background-color:transparent; text-decoration:underline}
+
+#Welcome {
+    width: 100%;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: both;
+    overflow: auto;
+    word-wrap: normal;
+    font-size: 20px;
+    font-family: "Courier New", Courier, monospace;
+} 
+
+#section {
+    line-height: 30px;
+    text-align:center-left;
+    padding: 5px;
+    top: 120px;
+    right: 100px;
+    left: 250px;
+    bottom: auto;
+    position: absolute;
+}
+
+body {
+    background-image: url("Pictures/Dark-forest.jpg");
+    width: 100%;
+    height: 100%;
+}
+</style>
+<script>
+var myWindow = window.self;
+var h = screen.availHeight;
+var w = screen.availWidth;
+
+function resizeWin() {
+    myWindow.resizeTo(h, w);                             // Resizes the window
+}
+</script>
+</head>
+<body onload="resizeWin()">
+	
+<div id="header">
+<title>About</title>
+<h1>About Us</h1>
+</div>
+
+<div id="nav">
+<a href="Home.html">Home Page</a><br>
+<a href="About_us.html">About Us</a><br>
+<a href="Babble Bot.html">Our Software</a><br>
+</div>
+
+<div id="section">
+    <br>
+    <textarea id="Welcome" autofocus readonly="readonly" rows="15"> 
+   
+    </textarea>
+</div>
+</body>
+</html>
+		

@@ -1,0 +1,18 @@
+Breakdown for the project
+
+1. Process Input
+	a. Breaking down sentence
+		i. Parsing sentence
+2. Checking parsed words against database
+	a. Is it found in the database?
+		i. Return part of speech
+	b. Add it to database (adding words, be done a little later)
+3. Sentence analysis
+	a. A function to analyze sentence structure 
+4. Database of words
+	a. Full of words and parts of speech (possible in one of the NLP packages)
+5. Logic for Sentence response
+	a. Can we create a response from structure alone?
+	b. Would it be easier to create a list of stored responses for the sake of the presentation (if we cannot get logic done in time)
+6. Website interface
+	

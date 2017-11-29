@@ -1,0 +1,190 @@
+﻿<!DOCTYPE html>
+<html>	
+
+<head>
+<style>
+#header {
+    background-color: black;
+    color: #C0E2B5;
+    text-align: center;
+    font-family: "Courier New", Courier, monospace;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    bottom: auto;
+}
+
+#nav {
+	line-height: 30px;
+	background-color: black;
+	color: #C0E2B5;
+	text-align: center;
+	font-family: "Courier New", Courier, monospace;
+	width: 12%;
+    position: absolute;
+   	top: 79.5px;
+	bottom: 0px;
+}
+
+a:link    {color:#C0E2B5; background-color:transparent; text-decoration:none}
+a:visited {color:#C0E2B5; background-color:transparent; text-decoration:none} 
+a:hover   {color:#40e0d0; background-color:transparent; text-decoration:underline}
+a:active  {color:#C0E2B5; background-color:transparent; text-decoration:underline}
+
+
+#texbox {
+    display: block;
+    box-sizing: padding-box;
+    background-color: #f8f8f8;
+    top: 85px;
+    left: 200px;
+    right: auto;
+    bottom: 0px;
+    padding:20px;
+    position: absolute;
+    overflow: auto;
+    resize: none;
+    width: 85%;
+    resize: both;
+    font-size: 12px;
+    font-family: "Courier New", Courier, monospace;
+    word-wrap: normal;
+    line-height: 15px;
+    text-align:center-left;
+    border-radius: 6px;
+    border:0; 
+} 
+
+#output {
+  display:block;
+  box-sizing: padding-box;
+  resize: none;
+  overflow-y: auto;
+  overflow-x: hidden;
+  
+  padding:5px;
+  width:90%;
+  font-size:12px;
+  font-family: "Courier New", Courier, monospace;
+  word-wrap: normal;
+  border-radius:6px;
+  box-shadow:2px 2px 8px rgba(0,0,0,.3);
+  border:0;
+}
+
+#output2 {
+  display:block;
+  box-sizing: padding-box;
+  resize: none;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  
+  padding:5px;
+  width:90%;
+  font-size:12px;
+  border-radius:6px;
+  box-shadow:2px 2px 8px rgba(0,0,0,.3);
+  border:0;
+}
+
+#input {
+  display:block;
+  box-sizing: padding-box;
+  overflow-y: auto;
+  overflow-x: hidden;
+  resize: none;
+  position: relative;
+  
+  padding: 5px;
+  width: 90%;
+  font-size: 12px;
+  font-family: "Courier New", Courier, monospace;
+  word-wrap: normal;
+  border-radius: 6px;
+  box-shadow:2px 2px 8px rgba(0,0,0,.3);
+  border:0;
+}
+
+.button1 {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 5px 20px;
+    float: right;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 2px 2px;
+    cursor: pointer;
+}
+body {
+    background-image: url("Pictures/Dark-forest.jpg"); 
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+}
+</style>
+
+<script>
+/*edit: pulls in the input and outputs it to sentence structure then if conversation history is null it outputs it else it updates the history*/
+function edit(sentence) {
+        document.texbox.output.value = sentence; //sentence structure
+        if(document.getElementById("output2").innerHTML == null)
+        {
+        	document.texbox.output2.value = sentence; //conversation history
+        }
+        else
+        {
+        	update(sentence);
+        }
+}
+
+/*update: it updates the conversation history by storage it in the browsers cache*/
+function update(sentence) {
+       
+        /* get the editable element */
+    	var editElem = document.getElementById("output2");
+    	
+    	/* get the edited element content */
+    	var userVersion = editElem.innerHTML;
+    	
+	    /* save the history to local storage */
+    	localStorage.userEdits = userVersion + '\n' + sentence;	
+}
+
+/*checkHistory: pulls the conversation history if any is stored*/
+function checkHistory() {
+    if(localStorage.userEdits != null)
+    {
+    	document.getElementById("output2").innerHTML = localStorage.userEdits;
+    }
+}
+</script>
+</head>
+
+<body onload="checkHistory()">
+<div id="header">
+<title>Software</title>
+<h1>Babble Bot</h1>
+</div>
+
+
+<div id="nav">
+    <a href="Home.html">Home Page</a><br>
+    <a href="About.html">About Our Project</a><br>
+     <a href="About_us.html">About Us</a><br>
+</div>
+<form name="texbox" action="" method="get" id="texbox"> 
+	Sentence Structure: <br>
+        <textarea rows="5" name="output" id="output" readonly="readonly"></textarea><br><br>
+        Conversation History: <br>
+        <textarea rows="15" name="output2" id="output2" readonly="readonly"></textarea><br><br>
+	Input: <textarea rows="3" name="input" id="input"></textarea><button class="button button1" onclick="edit(input.value)">Enter</button>
+</form>
+</body>
+</body>
+</html>
+		
